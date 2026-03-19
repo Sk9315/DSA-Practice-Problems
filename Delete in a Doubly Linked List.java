@@ -24,3 +24,63 @@ AmazonWalmart
 
 */
 
+/*
+Structure of a Doubly LinkList
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int val) {
+        data = val;
+        next = null;
+        prev = null;
+    }
+}
+*/
+import java.util.*;
+class Solution {
+    public Node delPos(Node head, int x) {
+         //handling the edge cases
+        
+        if(x==1){
+            Node tep=head;
+            head=tep.next;
+            tep.next=null;
+            head.prev=null;
+            
+            return head;
+        }
+        
+        // removing at the beginnening
+        Node temp=head;
+        Node back=null;
+        while(x>1){
+            back=temp;
+            temp=temp.next;
+            x--;
+        }
+        if(temp.next!=null){
+            back.next=temp.next;
+            temp.next.prev=back;
+            temp.next=null;
+            temp.prev=null;
+            
+        }
+        else{
+            back.next=null;
+            
+        }
+        
+        
+        
+        return head;
+        
+        //removing at the middle
+        
+        
+        
+                
+        //removing at the end
+    }
+}
