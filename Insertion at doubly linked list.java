@@ -28,3 +28,43 @@ Related Articles
 Doubly Linked ListInsert A Node At A Specific Position In Doubly Linked ListIntroduction And Insertion In A Doubly Linked List
 
 */
+/*
+class Node
+{
+    int data;
+    Node next;
+    Node prev;
+    Node(int data)
+    {
+        this.data = data;
+        next = prev = null;
+    }
+}
+*/
+import java.util.*;
+
+class Solution {
+    Node insertAtPos(Node head, int p, int x) {
+        // code here
+        Node temp=head;
+        
+        while(p>0){
+            temp=temp.next;
+            p--;
+        }
+        
+        //handling the edge case fore the last insertion
+        Node nwNode=new Node(x);
+        if(temp.next==null){
+            temp.next=nwNode;
+            nwNode.prev=temp;
+            return head;
+        }
+        Node futr=temp.next;
+        temp.next=nwNode;
+        nwNode.prev=temp;
+        nwNode.next=futr;
+        futr.prev=nwNode;
+        return head;
+    }
+}

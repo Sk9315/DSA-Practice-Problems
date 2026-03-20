@@ -51,8 +51,8 @@ class Solution {
             
             return head;
         }
-        
-        // removing at the beginnening
+  
+       
         Node temp=head;
         Node back=null;
         while(x>1){
