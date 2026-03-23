@@ -1,0 +1,74 @@
+/*
+Given the head of a singly linked list, the task is to remove a cycle if present. A cycle exists when a node's next pointer points back to a previous node, forming a loop. Internally, a variable pos denotes the index of the node where the cycle starts, but it is not passed as a parameter. The terminal will print true if a cycle is removed otherwise, it will print false.
+
+Examples:
+
+Input: head = 1 -> 3 -> 4, pos = 2
+Output: true
+Explanation: The linked list looks like
+
+A loop is present in the list, and it is removed.
+Input: head = 1 -> 8 -> 3 -> 4, pos = 0
+Output: true
+Explanation: 
+
+The Linked list does not contains any loop. 
+Input: head = 1 -> 2 -> 3 -> 4, pos = 1
+Output: true
+Explanation: The linked list looks like 
+
+A loop is present in the list, and it is removed.
+Constraints:
+1 ≤ size of linked list ≤ 105
+
+Expected Complexities
+Time Complexity: O(n)
+Auxiliary Space: O(1)
+Company Tags
+VMWareMorgan StanleyAmazonMicrosoftSnapdealMakeMyTripOracleWalmartGoldman SachsAdobeQualcommKulizaNetskope
+
+*/
+import java.util.*;
+/*
+class Node
+{
+    int data;
+    Node next;
+}
+*/
+
+class Solution {
+    public static void removeLoop(Node head) {
+        // code here
+        //witing the code with hte logic of constant extra space
+        Node slow =head;
+        Node fast=head;
+        boolean flag=false;
+        
+        while(fast!=null && fast.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow){
+                flag=true;
+                break;
+            }
+            
+        }
+        
+        if(flag){
+            slow=head;
+            while(slow!=fast){
+                slow=slow.next;
+                fast=fast.next;
+                
+            }
+            
+           while(slow.next != fast){
+             slow = slow.next;
+            }
+            slow.next = null;
+        }
+        
+    }
+     
+    }
