@@ -35,10 +35,8 @@ class Solution {
         if(node == null){
             return 0;
         }
-
         int c1 = countSize(node.left);
         int c2 = countSize(node.right);
-
         return 1 + c1 + c2;
     }
 }
